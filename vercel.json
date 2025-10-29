@@ -1,8 +1,22 @@
 {
+  "regions": ["sin1"],
   "rewrites": [
     {
       "source": "/api/:path*",
       "destination": "/api/:path*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/www/(.*)",
+      "destination": "https://cambroos.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.cambroos.com" }],
+      "destination": "https://cambroos.com",
+      "permanent": true
     }
   ]
 }
