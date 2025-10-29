@@ -2,15 +2,17 @@
   "regions": ["sin1"],
   "redirects": [
     {
-      "source": "https://www.cambroos.com/:path*",
-      "destination": "https://cambroos.com/:path*",
+      "source": "/(.*)",
+      "has": [
+        { "type": "host", "value": "www.cambroos.com" }
+      ],
+      "destination": "https://cambroos.com/:1",
       "permanent": true
-    }
-  ],
-  "rewrites": [
+    },
     {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
+      "source": "http://(.*)",
+      "destination": "https://cambroos.com",
+      "permanent": true
     }
   ]
 }
